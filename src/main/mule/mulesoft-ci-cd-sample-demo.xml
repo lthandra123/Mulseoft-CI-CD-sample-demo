@@ -9,13 +9,13 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="346177b7-4222-45ed-b6d6-4473b06f843f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<db:config name="Database_Config" doc:name="Database Config" doc:id="d3c8754d-3fce-4d88-85ab-c74cb0646951" >
+	<db:config name="Database_Config1" doc:name="Database Config" doc:id="31955f99-489a-42e6-8625-d7dbacd68738" >
 		<db:my-sql-connection host="localhost" port="3306" user="root" password="Miracle@1" database="oderapi" />
 	</db:config>
 	<flow name="mulesoft-ci-cd-sample-demoFlow" doc:id="d21cdf68-5b56-40ad-91ae-7cbd2dcbc2d8" >
 		<http:listener doc:name="Listener" doc:id="aa575de0-bc97-4324-bdf9-218c3b95bb5e" config-ref="HTTP_Listener_config" path="/test"/>
-		<db:select doc:name="To fetch ledger details from database" doc:id="4f061c94-f2db-4369-a058-43191fa99f4e" config-ref="Database_Config">
-			<db:sql >select * from ledger </db:sql>
+		<db:select doc:name="Select" doc:id="39b0dd31-2f68-43d8-963c-0c9a074b83f7" config-ref="Database_Config1">
+			<db:sql >select * from ledger</db:sql>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="75d3c044-d346-46b4-8e71-1ff21da1c4df" >
 			<ee:message >
